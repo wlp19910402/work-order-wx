@@ -21,7 +21,7 @@
 </template>
 
 <script>
-	import mInput from '../../components/m-input.vue';
+	import mInput from '@/components/m-input.vue';
 
 	export default {
 		components: {
@@ -82,7 +82,7 @@
 							uni.setStorageSync('uni_id_token', e.result.token)
 							uni.setStorageSync('username', e.result.username)
 							uni.reLaunch({
-								url: '../main/main',
+								url: '/pages/main/main',
 							});
 						} else {
 							uni.showModal({

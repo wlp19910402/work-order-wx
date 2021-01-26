@@ -134,7 +134,7 @@
 										uni.removeStorageSync('uni_id_token')
 										uni.removeStorageSync('username')
 										uni.reLaunch({
-											url: '/pages/login/login'
+											url: '/pages/user/login/login'
 										})
 									}
 								}

@@ -43,7 +43,7 @@
 					console.log(res);
 					if (res.result.code === 0) {
 						// 这里请修改为真实的邀请页面url
-						this.inviteUrl = 'https://login.tpl.dcloud.net.cn/#/pages/invite-reg/invite-reg?invite_code=' + res.result.myInviteCode
+						this.inviteUrl = 'https://login.tpl.dcloud.net.cn/#/pages/user/invite-reg/invite-reg?invite_code=' + res.result.myInviteCode
 					} else {
 						uni.showModal({
 							content: '获取用户邀请码失败:' + res.result.msg,
@@ -149,7 +149,7 @@
 			},
 			toInvitedUser() {
 				uni.navigateTo({
-					url: '/pages/invited-user/invited-user'
+					url: '/pages/user/invited-user/invited-user'
 				})
 			}
 		}

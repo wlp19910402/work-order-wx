@@ -47,9 +47,7 @@
 						action: 'checkToken',
 					},
 					success: (e) => {
-
 						console.log('checkToken success', e);
-
 						if (e.result.code > 0) {
 							//token过期或token不合法，重新登录
 							if (this.forcedLogin) {
