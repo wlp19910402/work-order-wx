@@ -8,7 +8,10 @@
     "pages": [{
         "path": "pages/main/main",
         "style": {
-            "navigationBarTitleText": "登录模板"
+            "navigationBarTitleText": "登录模板",
+            "mp-weixin": {
+
+            }
         }
     }, {
         "path": "pages/order/order",
@@ -38,7 +41,14 @@
     }, {
         "path": "pages/user/my/my",
         "style": {
-            "navigationBarBackgroundColor": "#00aff2"
+            "navigationBarBackgroundColor": "#ffffff",
+            "navigationBarTitleText": "我的",
+            "backgroundTextStyle": "dark",
+            "app-plus": {
+                "titleNView": {
+                    "type": "transparent"
+                }
+            }
         }
     }, {
         "path": "pages/user/invite/invite",
@@ -78,6 +88,7 @@
                 "text": "我的",
                 "iconPath": "static/img/tabBarIcon/my-default.png",
                 "selectedIconPath": "static/img/tabBarIcon/my-active.png"
+
             }
         ]
     },

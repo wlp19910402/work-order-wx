@@ -2,7 +2,7 @@
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  onLaunch: function() {
+  onLaunch: function () {
     console.log('App Launch')
     let uniIdToken = uni.getStorageSync('uni_id_token')
     if (uniIdToken) {
@@ -27,14 +27,14 @@ export default {
     })
     // #endif
   },
-  onShow: function() {
+  onShow: function () {
     console.log('App Show')
   },
-  onHide: function() {
+  onHide: function () {
     console.log('App Hide')
   },
   methods: {
-    ...mapMutations(['login', 'setUniverifyErrorMsg', 'setHideUniverify'])
+    ...mapMutations([ 'login', 'setUniverifyErrorMsg', 'setHideUniverify' ])
   }
 }
 </script>
@@ -161,6 +161,6 @@ m-input {
 }
 
 button.primary {
-  background-color: #00aff2;
+  background-color: #24bd7a;
 }
 </style>
