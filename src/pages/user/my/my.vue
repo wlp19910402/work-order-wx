@@ -3,7 +3,7 @@
     <view class="center">
       <view class="logo" @click="bindLogin" :hover-class="!hasLogin ? 'logo-hover' : ''">
         <image class="my-bg" :src="bannerBg"></image>
-        <view class="my-container">
+        <view class="my-container display-flex">
           <image class='logo-img' :src="avatarUrl"></image>
           <view class="logo-title">
             <text class="uer-name">{{ hasLogin ? userName : '未登录' }}</text>
@@ -12,14 +12,15 @@
         </view>
       </view>
       <view class="center-list" v-for="(item,index) in moduleDataFilter" :key="index">
-        <view class="center-list-item" v-for="(ite,idx) in item" :key="idx">
+        <view class="center-list-item display-flex" v-for="(ite,idx) in item" :key="idx">
           <text :class="['iconfont',ite.icon]"></text>
           <text class="list-text">{{ite.name}}</text>
           <text class="iconfont default icon-arrow-right"></text>
         </view>
       </view>
       <view class="btn-row">
-        <button v-if="hasLogin" class="primary" type="primary" :loading="logoutBtnLoading" @tap="bindLogout"> 退出登录
+        <button v-if="hasLogin" class="primary" type="primary" :loading="logoutBtnLoading" @tap="popUpTip">
+          退出登录
         </button>
       </view>
     </view>
@@ -34,7 +35,7 @@ import {
   univerifyLogin
 } from "@/common/univerify.js"
 import avatarUrl from '@/static/img/logo.png'
-import bannerBg from '@/static/img/user-bg.png'
+import bannerBg from '@/static/img/user-bg1.png'
 export default {
   data () {
     return {
@@ -115,19 +116,6 @@ export default {
       return this.moduleData.filter(item => item.filter(ite => !ite.isLogin).length > 0)
     }
   },
-  created () {
-    // uni.setNavigationBarTitle({
-    //   title: '新的标题'
-    // });
-    // uni.setNavigationBarColor({
-    //   frontColor: '#ffffff',
-    //   backgroundColor: '#ff0000',
-    //   animation: {
-    //     duration: 400,
-    //     timingFunc: 'easeIn'
-    //   }
-    // })
-  },
   methods: {
     ...mapMutations([ 'logout' ]),
     bindLogin () {
@@ -139,6 +127,20 @@ export default {
           })
         })
       }
+    },
+    popUpTip () {
+      let that = this
+      uni.showModal({
+        title: '提示',
+        content: '确认退出登录吗？',
+        showCancel: true,
+        confirmColor: "#24bd7a",
+        success: function success (res) {
+          if (res.confirm) {
+            that.bindLogout()
+          }
+        }
+      });
     },
     bindLogout () {
       const loginType = uni.getStorageSync('login_type')
@@ -216,7 +218,7 @@ export default {
 .uni-card__header-title-text::after{
   border-bottom:none !important;
 }
-  page,view{
+  .display-flex{
     display:flex;
   }
 
@@ -228,12 +230,15 @@ export default {
     height:100%;
   }
   .my-container{
+    top:0;
+    height:168rpx;
     width:100%;
-    padding: 140rpx 20rpx 0;
+    padding: 20rpx 20rpx 0;
     box-sizing: border-box;
     /* background-color: #24bd7a; */
     flex-direction: row;
     align-items: center;
+    display: flex;
     position: absolute;
   }
   .center {
@@ -243,12 +248,12 @@ export default {
     width:750rpx;
     padding:0 30rpx;
     box-sizing:border-box;
+
     margin-top:-70rpx
   }
   .logo {
     width: 750rpx;
-    height: 320rpx;
-
+    height: 200rpx;
     position: relative;
   }
   .logo-hover {
@@ -263,11 +268,13 @@ export default {
 
   .logo-title {
     height: 150rpx;
+    line-height: 150rpx;
     flex: 1;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
     margin-left: 20rpx;
+    display: flex;
   }
 
   .uer-name {

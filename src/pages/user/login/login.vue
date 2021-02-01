@@ -4,11 +4,6 @@
       <view v-for="(item, index) in loginTypeList" :key="index" @click="loginType = index"
         :class="{ act: loginType === index }" class="login-type-btn">{{ item }}</view>
     </view>
-    <view>
-      <text class="iconfont">&#xe6c6;</text>
-      <text class="iconfont">&#xe6d2;</text>
-      <text class="iconfont">&#xe6cb;</text>
-    </view>
     <view class="input-group" v-if="loginType === 0">
       <view class="input-row border">
         <text class="title">手机：</text>

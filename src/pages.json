@@ -41,15 +41,10 @@
     }, {
         "path": "pages/user/my/my",
         "style": {
-            "navigationBarBackgroundColor": "#ffffff",
+            "navigationBarBackgroundColor": "#46b989",
             "navigationBarTitleText": "我的",
-            "backgroundTextStyle": "dark",
-            "navigationStyle": "custom",
-            "app-plus": {
-                "titleNView": {
-                    "type": "transparent"
-                }
-            }
+            "backgroundTextStyle": "light",
+            "navigationBarTextStyle": "white"
         }
     }, {
         "path": "pages/user/invite/invite",
