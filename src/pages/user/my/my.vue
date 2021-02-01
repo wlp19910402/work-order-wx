@@ -18,20 +18,6 @@
           <text class="iconfont default icon-arrow-right"></text>
         </view>
       </view>
-      <view class="center-list" v-for="(item,index) in moduleDataFilter" :key="index">
-        <view class="center-list-item" v-for="(ite,idx) in item" :key="idx">
-          <text :class="['iconfont',ite.icon]"></text>
-          <text class="list-text">{{ite.name}}</text>
-          <text class="iconfont default icon-arrow-right"></text>
-        </view>
-      </view>
-      <view class="center-list" v-for="(item,index) in moduleDataFilter" :key="index">
-        <view class="center-list-item" v-for="(ite,idx) in item" :key="idx">
-          <text :class="['iconfont',ite.icon]"></text>
-          <text class="list-text">{{ite.name}}</text>
-          <text class="iconfont default icon-arrow-right"></text>
-        </view>
-      </view>
       <view class="btn-row">
         <button v-if="hasLogin" class="primary" type="primary" :loading="logoutBtnLoading" @tap="bindLogout"> 退出登录
         </button>
@@ -116,6 +102,9 @@ export default {
         ]
       ]
     }
+  },
+  components: {
+    // navigationBar
   },
   computed: {
     ...mapState([ 'hasLogin', 'forcedLogin', 'userName' ]),
@@ -240,7 +229,7 @@ export default {
   }
   .my-container{
     width:100%;
-    padding: 120rpx 20rpx 0;
+    padding: 140rpx 20rpx 0;
     box-sizing: border-box;
     /* background-color: #24bd7a; */
     flex-direction: row;
