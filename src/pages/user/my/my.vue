@@ -18,6 +18,20 @@
           <text class="iconfont default icon-arrow-right"></text>
         </view>
       </view>
+      <view class="center-list" v-for="(item,index) in moduleDataFilter" :key="index">
+        <view class="center-list-item" v-for="(ite,idx) in item" :key="idx">
+          <text :class="['iconfont',ite.icon]"></text>
+          <text class="list-text">{{ite.name}}</text>
+          <text class="iconfont default icon-arrow-right"></text>
+        </view>
+      </view>
+      <view class="center-list" v-for="(item,index) in moduleDataFilter" :key="index">
+        <view class="center-list-item" v-for="(ite,idx) in item" :key="idx">
+          <text :class="['iconfont',ite.icon]"></text>
+          <text class="list-text">{{ite.name}}</text>
+          <text class="iconfont default icon-arrow-right"></text>
+        </view>
+      </view>
       <view class="btn-row">
         <button v-if="hasLogin" class="primary" type="primary" :loading="logoutBtnLoading" @tap="bindLogout"> 退出登录
         </button>

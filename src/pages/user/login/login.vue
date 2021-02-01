@@ -348,6 +348,7 @@ export default {
       detail
     }) {
       console.log('三方登录只演示登录api能力，暂未关联云端数据')
+      console.log(detail.userInfo)
       if (detail.userInfo) {
         this.loginLocal(detail.userInfo.nickName)
       } else {

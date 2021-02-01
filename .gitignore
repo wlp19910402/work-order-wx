@@ -24,3 +24,7 @@ yarn-error.log*
 .eslintrc.js
 .prettierrc
 
+
+
+# 打包成微信小程序，避免报错，可以查看  https://developers.weixin.qq.com/miniprogram/dev/framework/sitemap.html
+sitemap.json
