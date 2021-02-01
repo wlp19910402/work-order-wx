@@ -2,36 +2,20 @@
   <view class="">
     <view class="center">
       <view class="logo" @click="bindLogin" :hover-class="!hasLogin ? 'logo-hover' : ''">
-        <image class='logo-img' :src="avatarUrl"></image>
-        <view class="logo-title">
-          <text class="uer-name">Hi，{{ hasLogin ? userName : '您未登录' }}</text>
-          <text class="iconfont white" v-if="!hasLogin">&#xe66b;</text>
+        <image class="my-bg" :src="bannerBg"></image>
+        <view class="my-container">
+          <image class='logo-img' :src="avatarUrl"></image>
+          <view class="logo-title">
+            <text class="uer-name">{{ hasLogin ? userName : '未登录' }}</text>
+            <text class="iconfont white icon-arrow-right" v-if="!hasLogin"></text>
+          </view>
         </view>
-      </view>
-      <!-- <view class="server">
-        <uni-card class="modules-card" :is-full="true" title="我的服务" mode="basic">
-          们追着这桂香，走进了清幽的公园。
-        </uni-card>
-      </view> -->
-      <view class="center-list">
-        <view class="center-list-item" v-show="hasLogin && hasPwd" @click="goto">
-          <text class="list-icon">&#xe60f;</text>
-          <text class="list-text">修改密码</text>
-          <text class="iconfont default">&#xe66b;</text>
-        </view>
-        <!-- #ifdef APP-PLUS -->
-        <view v-if="hasLogin" class="center-list-item" @click="toInvite">
-          <text class="list-icon">&#xe65f;</text>
-          <text class="list-text">邀请好友</text>
-          <text class="iconfont default">&#xe66b;</text>
-        </view>
-
       </view>
       <view class="center-list" v-for="(item,index) in moduleDataFilter" :key="index">
         <view class="center-list-item" v-for="(ite,idx) in item" :key="idx">
-          <text class="iconfont" v-html="ite.icon"></text>
+          <text :class="['iconfont',ite.icon]"></text>
           <text class="list-text">{{ite.name}}</text>
-          <text class="iconfont default">&#xe66b;</text>
+          <text class="iconfont default icon-arrow-right"></text>
         </view>
       </view>
       <view class="btn-row">
@@ -50,11 +34,13 @@ import {
   univerifyLogin
 } from "@/common/univerify.js"
 import avatarUrl from '@/static/img/logo.png'
+import bannerBg from '@/static/img/user-bg.png'
 export default {
   data () {
     return {
       avatarUrl: avatarUrl,
       inviteUrl: avatarUrl,
+      bannerBg: bannerBg,
       logoutBtnLoading: false,
       hasPwd: uni.getStorageSync('uni_id_has_pwd'),
       module: [
@@ -67,33 +53,33 @@ export default {
       moduleData: [
         [ {
           name: "新消息通知",
-          icon: "&#xe669;",
+          icon: "icon-comment",
           link: "/",
           isLogin: false
         } ],
         [ {
           name: "帮助与反馈",
-          icon: "&#xe67c;",
+          icon: "icon-prompt",
           link: "/",
           isLogin: false
         },
         {
           name: "服务条款及隐私",
-          icon: "&#xe66e;",
+          icon: "icon-explain",
           link: "/",
           isLogin: false
         } ],
         [
           {
             name: "关于引用",
-            icon: "&#xe68e;",
+            icon: "icon-help",
             link: "/",
             isLogin: false
           }
         ], [
           {
             name: "邀请好友",
-            icon: "&#xe68f;",
+            icon: "icon-share",
             link: "/",
             isLogin: true
           },
@@ -101,7 +87,7 @@ export default {
         [
           {
             name: "修改密码",
-            icon: "&#xe676;",
+            icon: "icon-lock",
             link: "/",
             isLogin: true
           }
@@ -109,7 +95,7 @@ export default {
         [
           {
             name: "退出登录",
-            icon: "&#xe67d;",
+            icon: "icon-sign-out",
             link: "/",
             isLogin: true
           }
@@ -234,7 +220,19 @@ export default {
   button {
     width: 100%;
   }
-
+  .my-bg{
+    width:100%;
+    height:100%;
+  }
+  .my-container{
+    width:100%;
+    padding: 120rpx 20rpx 0;
+    box-sizing: border-box;
+    /* background-color: #24bd7a; */
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+  }
   .center {
     flex-direction: column;
   }
@@ -247,17 +245,8 @@ export default {
   .logo {
     width: 750rpx;
     height: 320rpx;
-    padding: 70rpx 20rpx 20rpx;
-    box-sizing: border-box;
-    /* background-color: #24bd7a; */
-    flex-direction: row;
-    align-items: center;
-    background-image: url('../../../static/img/user-bg.png');
-    background-size: 100% auto;
-  }
-  .uni-page-head{
-    background-image: url('../../../static/img/user-bg.png')!important;
-    background-size: 100% auto !important;
+
+    position: relative;
   }
   .logo-hover {
     opacity: 0.8;

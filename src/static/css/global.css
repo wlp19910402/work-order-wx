@@ -1,34 +1,31 @@
- @font-face {
-     font-family: 'iconfont';
-     font-family: 'iconfont';
-     src: url('//at.alicdn.com/t/font_2348866_vefv1doq5k8.eot');
-     src: url('//at.alicdn.com/t/font_2348866_vefv1doq5k8.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_2348866_vefv1doq5k8.woff2') format('woff2'), url('//at.alicdn.com/t/font_2348866_vefv1doq5k8.woff') format('woff'), url('//at.alicdn.com/t/font_2348866_vefv1doq5k8.ttf') format('truetype'), url('//at.alicdn.com/t/font_2348866_vefv1doq5k8.svg#iconfont') format('svg');
- }
- 
+ @import url('~@/static/font/iconfont.css');
  .iconfont {
-     font-family: iconfont;
-     margin: 0 20rpx;
+     font-family: "iconfont" !important;
+     font-style: normal;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
      color: #24bd7a;
+     margin: 0 20rpx;
      font-size: 42rpx;
      line-height: 90rpx;
-     width: 40rpx;
+     width: 60rpx;
      height: 90rpx;
  }
- 
+
  .iconfont.default {
      color: #bbb
  }
- 
+
  .iconfont.white {
      color: white
  }
- 
+
  #trans-tooltip,
  #tip-arrow-bottom,
  #tip-arrow-top {
      display: none;
  }
- 
+
  page {
      background-color: #f8fafb;
  }
